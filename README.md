@@ -1,0 +1,2 @@
+### About
+A machine learning project for the courses Thesis 1 and Thesis 2. In this notebook, we experimented with the Holt-Winters (or Triple Exponential Smoothing) and XGBoost to forecast the total rice stock inventory in the Philippines using the dataset 'rice and corn: monthly total stocks inventory by sector' retrieved from the open platform PSA Openstat by Philippines Statistics Authority.
