@@ -33,7 +33,7 @@ payload = {
 
 headers = {"Content-Type": "application/json"}
 
-print("Sending request to API...")
+print("[Sending request to API]")
 
 try:
     # 3. Make the POST request
@@ -50,7 +50,7 @@ try:
         with open(output_filename, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
-        print(f"Success! Data has been saved locally to '{output_filename}'")
+        print(f"[Successfully retrieved data. Saved locally as: '{output_filename}']")
 
     else:
         print(f"API Error {response.status_code}: {response.text}")
