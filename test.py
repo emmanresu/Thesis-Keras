@@ -1,5 +1,6 @@
 import json
 import requests
+import pandas as pd
 from datetime import date
 
 # rice stock inventory (monthly total stocks inventory by sector)
@@ -54,6 +55,8 @@ try:
 
     else:
         print(f"API Error {response.status_code}: {response.text}")
-
+    
+    df = pd.json_normalize(response.json())
+    print(df.to_string())
 except requests.exceptions.RequestException as e:
     print(f"An error occurred while connecting to the API: {e}")
