@@ -183,6 +183,7 @@ for month in months:
 # select csv file type and download
 driver.find_element(By.XPATH, f"//*[contains(text(), 'Comma delimited with heading')]").click()
 driver.find_element(By.ID, "ctl00_ContentPlaceHolderMain_VariableSelector1_VariableSelector1_ButtonViewTable").click()
+time.sleep(1)
 
 ''' Data extension '''
 # Link 2 (retail rice price old series [from 2000 to x])
