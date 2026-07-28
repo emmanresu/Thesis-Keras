@@ -7,7 +7,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 from datetime import date
 
-driver = uc.Chrome(driver_executable_path = 'chromedriver.exe')
+# driver = uc.Chrome(driver_executable_path = 'chromedriver.exe')
+driver = uc.Chrome(version_main = 150)  # this should match chrome version (current latest chrome version as of writing this comment: 151)
 
 ''' download rice stock inventory '''
 # driver.get(
