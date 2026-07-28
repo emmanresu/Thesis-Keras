@@ -13,6 +13,7 @@ from datetime import date
 # need to automate matching local chrome version as it only runs latest version unless specified 
 driver = uc.Chrome(version_main = 150)  
 
+'''--------------------------------------------------------------------------------------------------------------------------'''
 ''' download rice stock inventory '''
 # driver.get(
 #     'https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__2E__CS/0032E4ECNV0.px/?__cf_chl_f_tk' \
@@ -60,7 +61,7 @@ driver.find_element(By.XPATH, f"//*[contains(text(), 'Comma delimited with headi
 driver.find_element(By.ID, 'ctl00_ContentPlaceHolderMain_VariableSelector1_VariableSelector1_ButtonViewTable').click()
 time.sleep(1)
 
-
+'''--------------------------------------------------------------------------------------------------------------------------'''
 ''' Download wholesale rice prices '''
 # Link 1 (wholesale rice price new series [from x to current year])
 driver.get(
@@ -97,12 +98,10 @@ for month in months:
 # select csv file type and download
 driver.find_element(By.XPATH, f"//*[contains(text(), 'Comma delimited with heading')]").click()
 driver.find_element(By.ID, "ctl00_ContentPlaceHolderMain_VariableSelector1_VariableSelector1_ButtonViewTable").click()
+time.sleep(1)
 
+''' Data extension '''
 # Link 2 (wholesale rice price old series [from 2000 to x])
-# driver.get(
-#     'https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__2M__WS/0012M4AWP01.px/?rxid=e72ec426-dfed-48b3-bec2-d7cb9c283fff&' \
-#     '__cf_chl_f_tk=65Y8EnUgcT_z_lp9TMm.gFI.zV1Kibu1RGJasIVFjrs-1783005713-1.0.1.1-SyEsqYj_pCSJ6LZChTeTk4jFf0Q_1afl342ssqRTsbU'
-# )
 driver.get(
     'https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__2M__WS/0012M4AWP01.px/?rxid=2187481f-e6b9-4cf3-bd03-05d803a64dd7'
 )
@@ -134,8 +133,9 @@ for month in months:
 # select csv file type and download
 driver.find_element(By.XPATH, f"//*[contains(text(), 'Comma delimited with heading')]").click()
 driver.find_element(By.ID, "ctl00_ContentPlaceHolderMain_VariableSelector1_VariableSelector1_ButtonViewTable").click()
+time.sleep(1)
 
-
+'''--------------------------------------------------------------------------------------------------------------------------'''
 ''' Download retail rice prices '''
 # Link 1 (retail rice price new series [from x to current year])
 driver.get(
@@ -184,6 +184,7 @@ for month in months:
 driver.find_element(By.XPATH, f"//*[contains(text(), 'Comma delimited with heading')]").click()
 driver.find_element(By.ID, "ctl00_ContentPlaceHolderMain_VariableSelector1_VariableSelector1_ButtonViewTable").click()
 
+''' Data extension '''
 # Link 2 (retail rice price old series [from 2000 to x])
 driver.get(
     'https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__2M__RP/0042M4ARP01.px/?rxid=11176638-8515-41a0-b48c-e304faa32380'
