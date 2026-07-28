@@ -8,7 +8,10 @@ import time
 from datetime import date
 
 # driver = uc.Chrome(driver_executable_path = 'chromedriver.exe')
-driver = uc.Chrome(version_main = 150)  # this should match chrome version (current latest chrome version as of writing this comment: 151)
+
+# this should match chrome version (current latest chrome version as of writing this comment: 151)
+# need to automate matching local chrome version as it only runs latest version unless specified 
+driver = uc.Chrome(version_main = 150)  
 
 ''' download rice stock inventory '''
 # driver.get(
