@@ -19,4 +19,36 @@ quers = funcs.queries(['Sector', sector],
                 ['Month', month])
 response_stock = funcs.request_data(url_stocks, quers, cl, "stocks")
 
+url_ws_price_1 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/WS/0012M4AWP01.px'
+commodity = ['2', '3']
+quers = funcs.queries(['Region province', ['00']],
+                       ['Commodity', ['2', '3']],
+                       ['Year', year_part1],
+                       ['Month', month])
+response_ws_price1 = funcs.request_data(url_ws_price_1, quers, cl, 'wsprice1')
+
+url_ws_price_2 = ''
+commodity = ['2', '3']
+quers = funcs.queries(['Geolocation', ['0'],
+                       ['Commodity', commodity],
+                       ['Year', year_part2],
+                       ['Period', month]])
+response_ws_price2 = funcs.request_data(url_ws_price_2, quers, cl, 'wsprice2')
+
+url_r_price_1 = ''
+commodity = ['2', '3']
+quers = funcs.queries(['Geolocation', ['00'],
+                       ['Commdity', commodity],
+                       ['Year', year_part1],
+                       ['Period', year_part1]])
+response_r_price1 = funcs.request_data(url_r_price_1, quers, cl, 'rprice1')
+
+url_r_price_2 = ''
+commodity = ['0', '1']
+quers = funcs.queries(['Geolocation', ['000000000'],
+                       ['Commodity', commodity],
+                       ['Year', year_part2],
+                       ['Period', month]])
+response_r_price2 = funcs.request_data(url_r_price_2, quers, cl, 'rprice2')
+
 
