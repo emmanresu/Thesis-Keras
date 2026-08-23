@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from datetime import date
 from numpy import where
+from pathlib import Path
 
 def queries(*args):
   query = []
@@ -25,8 +26,10 @@ def request_data(url, queries, check_list, filename):
     if response.status_code == 200:
       response.encoding = "utf-8-sig"
       data = response.json()
-      output_filename = f"{filename}.json"
-      with open(output_filename, "w", encoding="utf-8") as f:
+      output_folder = Path('json_files')
+      output_folder.mkdir(parents=True, exist_ok=True)
+      file_path = output_folder / f'{filename}.json'
+      with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
       check_list.append("success")
     else:
