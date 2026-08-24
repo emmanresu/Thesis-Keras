@@ -98,5 +98,6 @@ retail2 = retail2.merge(retail2_temp, how='inner', on='date')
 
 retail_price = dp.dataset_concat(retail,
                                  retail2,
+                                 'date',
                                  ['regular_retail_price',
                                   'milled_retail_price'])
