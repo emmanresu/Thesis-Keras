@@ -41,6 +41,7 @@ def request_data(url, queries, check_list, filename):
 
 def dataset_concat(df1, df2, on_col, name_col):
   temp = pd.merge(df1, df2, on=on_col, how='outer')
-  temp[name_col] = temp[name_col + '_y'].fillna(temp[name_col + '_x'])
-  temp = temp.drop(columns=[name_col + '_y', name_col + '_x'])
+  for n in name_col:
+    temp[n] = temp[n + '_y'].fillna(temp[n + '_x'])
+    temp = temp.drop(columns=[n + '_y', n + '_x'])
   return temp
