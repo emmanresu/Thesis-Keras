@@ -6,6 +6,7 @@ from numpy import where
 import data_processing as dp
 import global_variables as gv
 
+
 ''' STAGE 1 WHOLESALE PRICE QUERY (2000 - 2009) '''
 url_ws_price_1 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/WS/0012M4AWP01.px'
 commodity = ['2', '3']
