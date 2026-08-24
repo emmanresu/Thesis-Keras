@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from datetime import date
 from numpy import where
-import helper_funcs as funcs
+import prototype.data_processing as funcs
 
 curr_year = date.today().year
 year_stock = [str(i) for i in range(2000, curr_year + 1)]

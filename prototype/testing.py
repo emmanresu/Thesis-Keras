@@ -1,4 +1,4 @@
-import helper_funcs as funcs
+import prototype.data_processing as dp
 from datetime import date
 
 curr_year = date.today().year
@@ -10,7 +10,7 @@ cl = []
 
 url_stocks = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2E/CS/0032E4ECNV0.px'
 sector = ['0', '1', '2', '3']
-quers = funcs.queries(['Sector', sector],
+quers = dp.queries(['Sector', sector],
                 ['Year', year_stock],
                 ['Month', month])
-response_stock = funcs.request_data(url_stocks, quers, cl, "stocks")
+response_stock = dp.request_data(url_stocks, quers, cl, "stocks")
