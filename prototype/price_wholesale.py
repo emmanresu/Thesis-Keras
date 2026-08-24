@@ -92,4 +92,8 @@ wholesale_2_temp = wholesale_2_temp.drop(columns=['commodity'])
 
 wholesale_2 = wholesale_2.merge(wholesale_2_temp, how='inner', on='date')
 
-wholesale_price = dp.dataset_concat(wholesale, wholesale_2)
+wholesale_price = dp.dataset_concat(wholesale, 
+                                    wholesale_2, 
+                                    'date',
+                                    ['regular_wholesale_price',
+                                     'milled_wholesale_price'])
