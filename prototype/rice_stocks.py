@@ -11,6 +11,7 @@ sector = ['0', '1', '2', '3']
 quers = dp.queries(['Sector', sector],
                 ['Year', gv.year_stock],
                 ['Month', gv.month])
+
 response_stock = dp.request_data(url_stocks, quers, gv.check_list, 'stocks')
 
 rice_stocks = pd.json_normalize(
