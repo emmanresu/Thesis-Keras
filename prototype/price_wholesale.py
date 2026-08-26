@@ -98,4 +98,3 @@ wholesale_price = dp.dataset_concat(wholesale,
                                     'date',
                                     ['regular_wholesale_price',
                                      'milled_wholesale_price'])
-print(wholesale_price)
