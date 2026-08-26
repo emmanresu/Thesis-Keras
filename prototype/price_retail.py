@@ -9,11 +9,12 @@ import global_variables as gv
 
 ''' STAGE 1 RETAIL PRICE QUERY (2000 - 2009) '''
 url_r_price_1 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/RP/0042M4ARP01.px'
+gl = ['00']
 commodity = ['2', '3']
-quers = dp.queries(['Geolocation', ['00'],
-                       ['Commdity', commodity],
-                       ['Year', gv.year_part1],
-                       ['Period', gv.year_part1]])
+quers = dp.queries(['Geolocation', gl],
+                    ['Commodity', commodity],
+                    ['Year', gv.year_part1],
+                    ['Period', gv.year_part1])
 response_r_price1 = dp.request_data(url_r_price_1, quers, gv.check_list, 'rprice1')
 
 rprice_1 = pd.json_normalize(
@@ -56,10 +57,10 @@ retail = retail.merge(retail_temp, how='inner', on='date')
 ''' STAGE 2 RETAIL PRICE QUERY (2000 - 2009) '''
 url_r_price_2 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/2018NEW/0042M4ARN01.px'
 commodity = ['0', '1']
-quers = dp.queries(['Geolocation', ['000000000'],
+quers = dp.queries(['Geolocation', ['000000000']],
                        ['Commodity', commodity],
                        ['Year', gv.year_part2],
-                       ['Period', gv.month]])
+                       ['Period', gv.month])
 response_r_price2 = dp.request_data(url_r_price_2, quers, gv.check_list, 'rprice2')
 
 rprice_2 = pd.json_normalize(
@@ -101,3 +102,4 @@ retail_price = dp.dataset_concat(retail,
                                  'date',
                                  ['regular_retail_price',
                                   'milled_retail_price'])
+print(retail_price)
