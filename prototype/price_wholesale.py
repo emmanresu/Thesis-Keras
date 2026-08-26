@@ -11,13 +11,14 @@ import global_variables as gv
 url_ws_price_1 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/WS/0012M4AWP01.px'
 commodity = ['2', '3']
 quers = dp.queries(['Region province', ['00']],
-                       ['Commodity', ['2', '3']],
+                       ['Commodity', commodity],
                        ['Year', gv.year_part1],
                        ['Month', gv.month])
+
 response_ws_price1 = dp.request_data(url_ws_price_1, quers, gv.check_list, 'wsprice1')
 
 wsprice_1 = pd.json_normalize(
-    response_ws_price1.json(), record_path=["data"]
+    response_ws_price1.json(), record_path=['data']
 )
 key_split = pd.DataFrame(wsprice_1['key'].to_list(), index=wsprice_1.index)
 key_split.columns = ['province', 'commodity', 'year', 'month']
@@ -52,7 +53,7 @@ wholesale = wholesale.merge(wholesale_temp, how='inner', on='date')
 
 
 ''' STAGE 2 WHOLESALE PRICE QUERY (2010 - CURRENT YEAR) '''
-url_ws_price_2 = ''
+url_ws_price_2 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/WS/0012M4AWP01.px'
 commodity = ['2', '3']
 quers = dp.queries(['Geolocation', ['0'],
                        ['Commodity', commodity],

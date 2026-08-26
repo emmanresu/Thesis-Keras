@@ -8,7 +8,7 @@ import global_variables as gv
 
 
 ''' STAGE 1 RETAIL PRICE QUERY (2000 - 2009) '''
-url_r_price_1 = ''
+url_r_price_1 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/RP/0042M4ARP01.px'
 commodity = ['2', '3']
 quers = dp.queries(['Geolocation', ['00'],
                        ['Commdity', commodity],
@@ -54,7 +54,7 @@ retail = retail.merge(retail_temp, how='inner', on='date')
 
 
 ''' STAGE 2 RETAIL PRICE QUERY (2000 - 2009) '''
-url_r_price_2 = ''
+url_r_price_2 = 'https://openstat.psa.gov.ph/PXWeb/api/v1/en/DB/2M/2018NEW/0042M4ARN01.px'
 commodity = ['0', '1']
 quers = dp.queries(['Geolocation', ['000000000'],
                        ['Commodity', commodity],
